@@ -6,15 +6,20 @@ hours = years * 365 * 24
 puts "That's #{hours} hours."
 
 #Then it asks for a number of decades, and prints out the number of minutes are in that many decades.
+def years_to_days(years)
+    leap_years = years/4
+    leap_years * 366 + (years - leap_years) * 365 
+end  
+
 puts "Enter a number of decades"
 decades = gets.chomp
 decades = decades.to_i
-minutes = decades * 10 * 365 * 24 * 60
+minutes = years_to_days(decades * 10)  * 24 * 60
 puts "That's #{minutes} minutes in #{decades} decades."
 
 #Then it asks for the user's age, and prints out the number of seconds old the user is. Call this program years_to_hours.rb.
 puts "Enter your age"
 age = gets.chomp
 age = age.to_i
-seconds = age * 365 * 24 * 60 * 60
+seconds = years_to_days(age) * 24 * 60 * 60
 puts "You're #{seconds} seconds old."
